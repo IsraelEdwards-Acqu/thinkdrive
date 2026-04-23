@@ -1,0 +1,227 @@
+﻿/* Base styles */
+body {
+    font-family: "Poppins", "Roboto", "Helvetica", "Arial", sans-serif;
+    background: #f9fbff;
+    color: #0b1b33;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* hide initial loader when a modal is open (Shorts uses body.modal-open) */
+body.modal-open #loader {
+    display: none !important;
+}
+
+/* Layout shell */
+.layout-root {
+    min-height: 100vh;
+    display: flex; /* use flex for predictable column layout */
+    flex-direction: column;
+}
+
+/* Header */
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #ffffffcc; /* translucent white */
+    backdrop-filter: saturate(1.2) blur(6px);
+    -webkit-backdrop-filter: saturate(1.2) blur(6px); /* Safari support */
+    border-bottom: 1px solid rgba(11,27,51,0.06);
+}
+
+    .app-header .header-left {
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+        padding: .75rem 1rem;
+    }
+
+.logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+}
+
+.brand {
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem 1rem 1rem 1rem;
+    flex-wrap: wrap;
+}
+
+/* Nav buttons */
+.nav-btn {
+    appearance: none;
+    border: none;
+    padding: .6rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+    /* Primary brand button (Gold) */
+    .nav-btn.primary {
+        background: #ffd700;
+        color: #0b1b33;
+    }
+
+        .nav-btn.primary:hover {
+            background: #ffc107;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(11,27,51,0.15);
+        }
+
+    /* Secondary brand button (Blue) */
+    .nav-btn.secondary {
+        background: #007bff;
+        color: #fff;
+    }
+
+        .nav-btn.secondary:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(11,27,51,0.15);
+        }
+
+    /* Neutral button (default white) */
+    .nav-btn.neutral {
+        background: #fff;
+        color: #0b1b33;
+        border: 1px solid rgba(11,27,51,0.12);
+    }
+
+        .nav-btn.neutral:hover {
+            background: #f9fbff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(11,27,51,0.12);
+        }
+
+/* Danger button */
+.btn-outline-danger {
+    border: 1px solid #e31b1b;
+    color: #e31b1b;
+    background: #fff;
+}
+
+    .btn-outline-danger:hover {
+        background: #ffe9e9;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(227,27,27,0.2);
+    }
+
+/* Toast notifications */
+.toast-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999;
+}
+
+.toast {
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    animation: fadeInOut 3s forwards;
+}
+
+    .toast.info {
+        background-color: #007bff;
+    }
+
+    .toast.success {
+        background-color: #28a745;
+    }
+
+    .toast.error {
+        background-color: #dc3545;
+    }
+
+    .toast.warning {
+        background-color: #ffc107;
+        color: #212529;
+    }
+
+/* Toast animation */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+.notification-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+}
+
+.notification {
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+    .notification.success {
+        background-color: #28a745;
+    }
+
+    .notification.error {
+        background-color: #dc3545;
+    }
+
+    .notification.info {
+        background-color: #17a2b8;
+    }
+.btn-role {
+    padding: 0.75rem 1.5rem;
+    margin: 0.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    border: 2px solid white;
+    background-color: white;
+    color: #0b1b33;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .btn-role:hover {
+        background-color: #f0f0f0;
+    }
+
+    .btn-role.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        filter: grayscale(100%);
+    }

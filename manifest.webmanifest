@@ -1,0 +1,38 @@
+{
+  "name": "ThinkDrive",
+  "short_name": "ThinkDrive",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#03173d",
+  "description": "ThinkDrive is a modern driving school platform for learners and instructors to connect, book lessons, and manage driving education efficiently.",
+  "categories": [ "education", "productivity", "utilities" ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot1.png",
+      "type": "image/png",
+      "sizes": "540x720"
+    },
+    {
+      "src": "screenshot2.png",
+      "type": "image/png",
+      "sizes": "540x720"
+    }
+  ],
+  "prefer_related_applications": false
+}

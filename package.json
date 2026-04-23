@@ -1,0 +1,17 @@
+{
+  "name": "thinkdrive",
+  "version": "1.0.0",
+  "description": "Blazor WebAssembly application targeting .NET 9",
+  "private": true,
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "build-blazor": "node scripts/inject-env.js && dotnet publish ThinkDrive/ThinkDrive.csproj -c Release -o ThinkDrive/bin/Release/net9.0/publish",
+    "build": "dotnet build",
+    "publish": "dotnet publish -c Release",
+    "watch": "dotnet watch run"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

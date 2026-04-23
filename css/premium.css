@@ -1,0 +1,189 @@
+.premium-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 1rem 100px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.premium-hero {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: rgba(255,255,255,0.9);
+}
+
+.certificate-banner {
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 20px;
+    border: 3px solid #D4AF37;
+}
+
+.certificate-content {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: center;
+}
+
+.certificate-badge {
+    text-align: center;
+}
+
+.certificate-info h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.certificate-info p {
+    color: rgba(255,255,255,0.8);
+}
+
+.price-tag {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.price-tag .currency {
+    font-size: 1.5rem;
+    color: #D4AF37;
+}
+
+.price-tag .amount {
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+    margin-left: 0.25rem;
+}
+
+.ad-container {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.richads-ad {
+    min-height: 90px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.pricing-section {
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 3rem;
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.plan-card {
+    padding: 2.5rem;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+}
+
+.plan-card.popular {
+    border: 3px solid #D4AF37;
+    position: relative;
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #D4AF37;
+    color: #001F3F;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+}
+
+.plan-header h3 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.plan-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.plan-price .currency {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.plan-price .amount {
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+    margin: 0 0.25rem;
+}
+
+.plan-price .period {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.6);
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.plan-features li {
+    padding: 0.75rem 0;
+    color: rgba(255,255,255,0.9);
+}
+
+.plan-btn {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .certificate-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}

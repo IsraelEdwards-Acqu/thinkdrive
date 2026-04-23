@@ -1,0 +1,385 @@
+﻿/* === Layout Root === */
+.layout-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #f9f9fb;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.page-home {
+    background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+}
+
+.main-content {
+    flex: 1;
+    padding: 1rem;
+    position: relative;
+}
+
+.loader {
+    --color-one: #ffbf48;
+    --color-two: #be4a1d;
+    --color-three: #ffbf4780;
+    --color-four: #bf4a1d80;
+    --color-five: #ffbf4740;
+    --time-animation: 2s;
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 25px 0 var(--color-three), 0 20px 50px 0 var(--color-four);
+    animation: colorize calc(var(--time-animation) * 3) ease-in-out infinite;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.loader::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border-top: solid 1px var(--color-one);
+    border-bottom: solid 1px var(--color-two);
+    background: linear-gradient(180deg, var(--color-five), var(--color-four));
+    box-shadow: inset 0 10px 10px 0 var(--color-three), inset 0 -10px 10px 0 var(--color-four);
+    z-index: 1001;
+}
+
+.loader .box {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(180deg, var(--color-one) 30%, var(--color-two) 70%);
+    mask: url(#clipping);
+    -webkit-mask: url(#clipping);
+    z-index: 1001;
+}
+
+.loader svg {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 1001;
+}
+
+.loader svg #clipping {
+    filter: contrast(15);
+    animation: roundness calc(var(--time-animation) / 2) linear infinite;
+}
+
+.loader svg #clipping polygon {
+    filter: blur(7px);
+}
+
+.loader svg #clipping polygon:nth-child(1) {
+    transform-origin: 75% 25%;
+    transform: rotate(90deg);
+}
+
+.loader svg #clipping polygon:nth-child(2) {
+    transform-origin: 50% 50%;
+    animation: rotation var(--time-animation) linear infinite reverse;
+}
+
+.loader svg #clipping polygon:nth-child(3) {
+    transform-origin: 50% 60%;
+    animation: rotation var(--time-animation) linear infinite;
+    animation-delay: calc(var(--time-animation) / -3);
+}
+
+.loader svg #clipping polygon:nth-child(4),
+.loader svg #clipping polygon:nth-child(5) {
+    transform-origin: 40% 40%;
+    animation: rotation var(--time-animation) linear infinite reverse;
+    animation-delay: calc(var(--time-animation) / -2);
+}
+
+.loader svg #clipping polygon:nth-child(6),
+.loader svg #clipping polygon:nth-child(7) {
+    transform-origin: 60% 40%;
+    animation: rotation var(--time-animation) linear infinite;
+    animation-delay: calc(var(--time-animation) / -1.5);
+}
+
+/* === Arc Menu Inside Loader === */
+.loader .meta-nav {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    display: flex;
+    pointer-events: none;
+    z-index: 998;
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease-out;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader .meta-nav.show {
+    pointer-events: auto;
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+}
+
+.loader .meta-nav .nav-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.2s ease;
+    cursor: pointer;
+    z-index: 998;
+}
+
+.loader .meta-nav .nav-icon i {
+    pointer-events: none;
+    font-size: 1.4rem;
+    color: #0d47a1;
+}
+
+.loader .meta-nav .nav-icon:hover {
+    transform: scale(1.2);
+    background-color: #e3f2fd;
+}
+    /* Circular positioning - centered, compact arc above loader with slight gap between Schools and Videos */
+    .loader .meta-nav .nav-icon:nth-child(1) {
+        transform: translate(-90px, -35px); /* Home - Far left */
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+
+    .loader .meta-nav .nav-icon:nth-child(2) {
+        transform: translate(-55px, -75px); /* Shorts - Upper left */
+        opacity: 1;
+        transition: all 0.5s ease 0.05s;
+    }
+
+    .loader .meta-nav .nav-icon:nth-child(3) {
+        transform: translate(-15px, -95px); /* Schools - Top-left center (moved slightly left) */
+        opacity: 1;
+        transition: all 0.5s ease 0.1s;
+    }
+
+    .loader .meta-nav .nav-icon:nth-child(4) {
+        transform: translate(40px, -95px); /* Videos - Top-right center (moved slightly right) */
+        opacity: 1;
+        transition: all 0.5s ease 0.15s;
+    }
+
+    .loader .meta-nav .nav-icon:nth-child(5) {
+        transform: translate(80px, -75px); /* Quiz - Upper right */
+        opacity: 1;
+        transition: all 0.5s ease 0.2s;
+    }
+
+    .loader .meta-nav .nav-icon:nth-child(6) {
+        transform: translate(110px, -35px); /* Login/Profile - Far right */
+        opacity: 1;
+        transition: all 0.5s ease 0.25s;
+    }
+/* Animate icons when menu is shown */
+.loader .meta-nav.show .nav-icon:nth-child(1) {
+    opacity: 1;
+}
+
+.loader .meta-nav.show .nav-icon:nth-child(2) {
+    opacity: 1;
+}
+
+.loader .meta-nav.show .nav-icon:nth-child(3) {
+    opacity: 1;
+}
+
+.loader .meta-nav.show .nav-icon:nth-child(4) {
+    opacity: 1;
+}
+
+.loader .meta-nav.show .nav-icon:nth-child(5) {
+    opacity: 1;
+}
+
+/* Tooltip Styling */
+.nav-icon .tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1000;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+}
+
+.nav-icon:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* === Animations === */
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes roundness {
+    0%, 60%, 100% {
+        filter: contrast(15);
+    }
+    20%, 40% {
+        filter: contrast(3);
+    }
+}
+
+@keyframes colorize {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    20% {
+        filter: hue-rotate(-30deg);
+    }
+    40% {
+        filter: hue-rotate(-60deg);
+    }
+    60% {
+        filter: hue-rotate(-90deg);
+    }
+    80% {
+        filter: hue-rotate(-45deg);
+    }
+    100% {
+        filter: hue-rotate(0deg);
+    }
+}
+
+/* === Icon Pop Animation === */
+@keyframes iconPop {
+    0% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(var(--tx), var(--ty)) scale(1.1);
+    }
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(1);
+        opacity: 1;
+    }
+}
+
+/* === Responsive Enhancements === */
+@media (max-width: 600px) {
+    .main-content {
+        padding: 0.75rem;
+    }
+
+    .loader {
+        bottom: 1rem;
+    }
+
+    .loader .meta-nav {
+        bottom: 1rem;
+    }
+
+    .nav-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+}
+
+/* Shorts Page Footer Styling */
+.td-bottom-nav.shorts-footer {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.7) 50%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Upload FAB Center Button */
+.td-nav-item.upload-fab-center {
+    position: relative;
+    margin-top: -30px;
+}
+
+.fab-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #001F3F;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.5);
+    transition: all 0.3s ease;
+    border: 3px solid #001F3F;
+}
+
+.upload-fab-center:hover .fab-circle {
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.7);
+}
+
+.upload-fab-center span {
+    color: #D4AF37;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+    .fab-circle {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+
+    .td-nav-item.upload-fab-center {
+        margin-top: -25px;
+    }
+}
+
+/* ✅ Shorts Page Footer - ALWAYS VISIBLE */
+.td-bottom-nav.shorts-footer {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.7) 50%,
+        rgba(0, 0, 0, 0) 100%
+    ) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    z-index: 9999 !important; /* ✅ VERY HIGH Z-INDEX */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}

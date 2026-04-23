@@ -1,0 +1,493 @@
+﻿:root {
+    --sky: #87ceeb;
+    --white: #ffffff;
+    --navy: #0b1b33;
+    --ink: #061122;
+    --muted: rgba(11,27,51,0.06);
+    --muted-strong: rgba(11,27,51,0.12);
+    --shadow-soft: 0 10px 30px rgba(0,0,0,0.12);
+    --shadow-card: 0 8px 28px rgba(11,27,51,0.06);
+    --shadow-card-hover: 0 18px 48px rgba(11,27,51,0.08);
+}
+
+/* Base and accessibility */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: var(--navy);
+    background: #f9fbff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Focus visibility (keyboard users) */
+:focus-visible {
+    outline: 2px solid var(--sky);
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* Page container helpers (optional) */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-inline: 1rem;
+}
+
+/* =========================
+   Hero section
+   ========================= */
+.home-hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 14px;
+    color: var(--navy);
+    background: linear-gradient(135deg, var(--sky) 0%, #a6e7ff 100%);
+}
+
+.hero-left {
+    flex: 1 1 52%;
+    min-width: 280px;
+    padding: 1rem 1.25rem;
+    background: rgba(255,255,255,0.92);
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+}
+
+.hero-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 0.5rem;
+}
+
+.icon-hero {
+    color: var(--navy);
+    font-size: 1.4em;
+}
+
+.hero-lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--ink);
+    margin: 0 0 1rem;
+}
+
+/* Hero right visual */
+.hero-logo {
+    flex: 1 1 40%;
+    min-width: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .hero-logo img,
+    .hero-image {
+        width: 100%;
+        max-width: 340px;
+        border-radius: 12px;
+        box-shadow: var(--shadow-soft);
+    }
+.disabled-card {
+    opacity: 0.5;
+    pointer-events: none;
+    filter: grayscale(100%);
+    cursor: not-allowed;
+}
+
+/* =========================
+   Actions
+   ========================= */
+.hero-actions {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.search-input {
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: 1px solid var(--muted);
+    background: #fff;
+    color: var(--ink);
+    width: 100%;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .search-input::placeholder {
+        color: rgba(11,27,51,0.45);
+    }
+
+    .search-input:focus {
+        border-color: var(--sky);
+        box-shadow: 0 0 0 3px rgba(135,206,235,0.25);
+        outline: none;
+    }
+
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-primary,
+.btn-secondary {
+    flex: 1 1 180px;
+    min-height: 44px; /* comfortable tap target */
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--white);
+    color: var(--navy);
+    border: 1px solid var(--muted);
+    box-shadow: var(--shadow-card);
+}
+
+    .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-card-hover);
+    }
+
+.btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255,255,255,0.35);
+}
+
+    .btn-secondary:hover {
+        background: rgba(255,255,255,0.1);
+        transform: translateY(-1px);
+    }
+
+/* =========================
+   Highlights grid
+   ========================= */
+.home-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.highlight-card {
+    border-radius: 14px;
+    padding: 1rem;
+    text-align: center;
+    color: var(--navy);
+    background: var(--white);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.18s ease, box-shadow 0.2s ease, background 0.2s ease;
+    cursor: pointer;
+}
+
+    .highlight-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-card-hover);
+    }
+
+.card-content {
+    display: grid;
+    gap: 0.5rem;
+    align-items: start;
+    justify-items: center;
+}
+
+    .card-content h5 {
+        font-size: 1rem;
+        margin: 0;
+        font-weight: 700;
+    }
+
+    .card-content p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: rgba(11,27,51,0.8);
+        line-height: 1.5;
+    }
+
+/* Icons */
+.icon-accent {
+    font-size: 2rem;
+    color: var(--sky);
+    margin-bottom: 0.5rem;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+    .icon-accent:hover {
+        color: var(--navy);
+        transform: scale(1.08);
+    }
+
+/* =========================
+   Responsive breakpoints
+   ========================= */
+
+/* Tablets and small desktops */
+@media (max-width: 1024px) {
+    .home-hero {
+        gap: 1rem;
+        padding: 1.5rem;
+        margin: 0.75rem;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-lead {
+        font-size: 1rem;
+    }
+
+    .hero-image {
+        max-width: 280px;
+    }
+
+    .action-buttons {
+        gap: 8px;
+    }
+
+    .btn-primary, .btn-secondary {
+        flex: 1 1 160px;
+    }
+}
+
+/* Large phones / phablets */
+@media (max-width: 900px) {
+    .home-hero {
+        flex-direction: column;
+        padding: 1.25rem;
+        margin: 0.75rem;
+    }
+
+    .hero-left {
+        width: 100%;
+        background: rgba(255,255,255,0.95);
+    }
+
+    .hero-logo {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .hero-image {
+        max-width: 220px;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-lead {
+        font-size: 1rem;
+    }
+
+    .icon-accent {
+        font-size: 1.6rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .home-hero {
+        padding: 1rem;
+        margin: 0.5rem;
+        border-radius: 12px;
+    }
+
+    .hero-left {
+        padding: 0.85rem 1rem;
+        border-radius: 10px;
+    }
+
+    .hero-title {
+        font-size: 1.3rem;
+    }
+
+    .hero-lead {
+        font-size: 0.92rem;
+    }
+
+    .hero-image {
+        max-width: 200px;
+        border-radius: 10px;
+    }
+
+    .highlight-card {
+        padding: 0.85rem;
+        border-radius: 12px;
+    }
+
+    .btn-primary, .btn-secondary {
+        font-size: 0.9rem;
+        padding: 0.65rem;
+        min-height: 42px;
+    }
+
+    .icon-accent {
+        font-size: 1.4rem;
+    }
+}
+
+/* Ultra-small phones (320–360px) */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.2rem;
+    }
+
+    .hero-lead {
+        font-size: 0.88rem;
+    }
+
+    .btn-primary, .btn-secondary {
+        font-size: 0.85rem;
+        padding: 0.6rem;
+        min-height: 40px;
+    }
+
+    .icon-accent {
+        font-size: 1.3rem;
+    }
+
+    .home-highlights {
+        gap: 0.75rem;
+        margin: 0.5rem;
+    }
+
+    .highlight-card {
+        padding: 0.75rem;
+    }
+}
+
+/* Large desktops */
+@media (min-width: 1200px) {
+    .hero-title {
+        font-size: 2.4rem;
+    }
+
+    .hero-lead {
+        font-size: 1.15rem;
+    }
+
+    .icon-accent {
+        font-size: 2.4rem;
+    }
+
+    .hero-image {
+        max-width: 360px;
+    }
+}
+
+/* Very large desktops (1440px+) */
+@media (min-width: 1440px) {
+    .home-hero {
+        max-width: 1400px;
+        margin-inline: auto;
+    }
+
+    .home-highlights {
+        max-width: 1400px;
+        margin-inline: auto;
+    }
+}
+
+/* =========================
+   Motion and accessibility
+   ========================= */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =========================
+   Optional dark mode (basic)
+   ========================= */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #0b1320;
+        color: #e6ecf5;
+    }
+
+    .home-hero {
+        color: #e6ecf5;
+    }
+
+    .hero-left {
+        background: rgba(10,18,32,0.7);
+        box-shadow: none;
+    }
+
+    .btn-primary {
+        background: #121a2a;
+        color: #e6ecf5;
+        border-color: rgba(230,236,245,0.08);
+    }
+
+    .highlight-card {
+        background: #0f1726;
+        box-shadow: none;
+        border: 1px solid rgba(230,236,245,0.06);
+    }
+
+    .card-content p {
+        color: rgba(230,236,245,0.85);
+    }
+
+    .search-input {
+        background: #0f1726;
+        color: #e6ecf5;
+        border-color: rgba(230,236,245,0.08);
+    }
+
+    .icon-accent {
+        color: #79c7e8;
+    }
+}

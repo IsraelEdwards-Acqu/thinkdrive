@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+    <title>ThinkDrive - Learn Faster, Drive Smarter</title>
+    <base href="/" />
+
+    <!-- PWA PRIMARY META TAGS -->
+    <meta name="title" content="ThinkDrive - Learn Faster, Drive Smarter">
+    <meta name="description" content="Master driving theory with interactive videos, shorts, quizzes, and comprehensive learning resources. Pass your driving test with confidence!">
+    <meta name="keywords" content="driving theory, driving test, driving school, driver education, practice tests, road signs, traffic rules">
+    <meta name="author" content="ThinkDrive">
+    <meta name="application-name" content="ThinkDrive">
+    <meta name="apple-mobile-web-app-title" content="ThinkDrive">
+
+    <!-- PWA MANIFEST -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- THEME COLOR -->
+    <meta name="theme-color" content="#1a73e8" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d47a1" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="light dark">
+
+    <!-- APPLE PWA META TAGS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
+
+    <!-- APPLE TOUCH ICONS -->
+    <link rel="apple-touch-icon" href="/images/icons/icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/images/icons/icon-167x167.png">
+
+    <!-- APPLE SPLASH SCREENS (iPhone/iPad) -->
+    <link rel="apple-touch-startup-image" href="/images/splash/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="/images/splash/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="/images/splash/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="/images/splash/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="/images/splash/iphonexr_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="/images/splash/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="/images/splash/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="/images/splash/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="/images/splash/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="/images/splash/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)">
+
+    <!-- FAVICONS -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/images/icons/favicon-48x48.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!-- MICROSOFT TILES -->
+    <meta name="msapplication-TileColor" content="#1a73e8">
+    <meta name="msapplication-TileImage" content="/images/icons/icon-144x144.png">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- OPEN GRAPH / FACEBOOK -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thinkdrive.vercel.app/">
+    <meta property="og:title" content="ThinkDrive - Learn Faster, Drive Smarter">
+    <meta property="og:description" content="Master driving theory with interactive videos, shorts, quizzes, and comprehensive learning resources.">
+    <meta property="og:image" content="https://thinkdrive.vercel.app/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- TWITTER -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://thinkdrive.vercel.app/">
+    <meta property="twitter:title" content="ThinkDrive - Learn Faster, Drive Smarter">
+    <meta property="twitter:description" content="Master driving theory with interactive videos, shorts, quizzes, and comprehensive learning resources.">
+    <meta property="twitter:image" content="https://thinkdrive.vercel.app/images/twitter-image.png">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- GOOGLE FONTS - Premium Professional Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- YOUR CSS FILES -->
+    <link href="css/layout.css" rel="stylesheet" />
+    <link href="css/home.css" rel="stylesheet" />
+    <link href="css/shorts.css" rel="stylesheet" />
+    <link href="css/videos.css" rel="stylesheet" />
+    <link href="css/quiz.css" rel="stylesheet" />
+    <link href="css/schools.css" rel="stylesheet" />
+    <link href="css/profile.css" rel="stylesheet" />
+    <link href="css/toasts.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="ThinkDrive.styles.css" rel="stylesheet" />
+
+    <!-- THINKDRIVE V2.0 DESIGN SYSTEM -->
+    <link href="css/thinkdrive-v2.css" rel="stylesheet" />
+
+    <!-- PWA INSTALL PROMPT STYLES -->
+    <style>
+        .pwa-install-banner {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+            color: white;
+            padding: 16px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .pwa-install-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 600px;
+            margin: 0 auto;
+            gap: 16px;
+        }
+
+        .pwa-install-text {
+            flex: 1;
+        }
+
+        .pwa-install-text h3 {
+            margin: 0 0 4px 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .pwa-install-text p {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .pwa-install-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .pwa-install-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .pwa-install-btn-primary {
+            background: white;
+            color: #1a73e8;
+        }
+
+        .pwa-install-btn-primary:hover {
+            transform: scale(1.05);
+        }
+
+        .pwa-install-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .pwa-install-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Your existing splash screen content -->
+        <div class="td-splash-screen" id="td-splash">
+            <!-- Animated Background -->
+            <div class="td-splash-bg">
+                <div class="td-splash-gradient"></div>
+                <div class="td-splash-particles" id="particles"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="td-splash-content">
+                <!-- Logo Container -->
+                <div class="td-splash-logo-wrapper">
+                    <div id="logo-shreds" class="td-logo-shreds"></div>
+                </div>
+
+                <!-- Brand Text -->
+                <div class="td-splash-brand">
+                    <h1 class="td-splash-title">ThinkDrive</h1>
+                    <p class="td-splash-subtitle">Learn Faster, Drive Smarter</p>
+                    <div class="td-splash-divider"></div>
+                    <p class="td-splash-tagline">
+                        <span class="td-powered">Powered by</span>
+                        <span class="td-kicso">KICSO<sup>™</sup></span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div class="td-splash-loader">
+                <div class="td-loader-bar">
+                    <div class="td-loader-progress"></div>
+                </div>
+            </div>
+        </div>
+    <!-- ===================================
+         SPLASH SCREEN LOGIC & ANIMATIONS
+         =================================== -->
+    <script>
+        (function () {
+            'use strict';
+
+            const logo = '/images/thinkdrive-logo.png';
+
+            function initSplash() {
+                console.log('[Splash] Initializing...');
+                
+                // Shred the logo
+                shredLogo();
+                
+                // Create floating particles
+                createParticles();
+                
+                console.log('[Splash] Initialization complete');
+            }
+
+            function shredLogo() {
+                const container = document.getElementById('logo-shreds');
+                if (!container) return;
+
+                const img = new Image();
+                img.onload = function () {
+                    console.log('[Splash] Logo loaded successfully');
+                    createShreds(container, img);
+                };
+                img.onerror = function () {
+                    console.warn('[Splash] Logo failed to load, using text fallback');
+                    createTextShreds(container);
+                };
+                img.src = logo;
+            }
+
+            function createShreds(container, img) {
+                const shredCount = 16;
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+
+                const shredWidth = img.width / shredCount;
+
+                for (let i = 0; i < shredCount; i++) {
+                    const shred = document.createElement('div');
+                    shred.className = 'logo-shred';
+                    
+                    const shredCanvas = document.createElement('canvas');
+                    shredCanvas.width = shredWidth;
+                    shredCanvas.height = img.height;
+                    
+                    const shredCtx = shredCanvas.getContext('2d');
+                    shredCtx.drawImage(
+                        canvas,
+                        i * shredWidth, 0, shredWidth, img.height,
+                        0, 0, shredWidth, img.height
+                    );
+
+                    shred.appendChild(shredCanvas);
+                    shred.style.cssText = `
+                        position: absolute;
+                        left: ${i * (200 / shredCount)}px;
+                        top: 0;
+                        width: ${200 / shredCount}px;
+                        height: 200px;
+                        transform: translateY(${Math.random() * 400 - 200}px) rotate(${Math.random() * 720 - 360}deg) scale(0.3);
+                        opacity: 0;
+                        filter: blur(4px);
+                        animation: reformShred 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+                        animation-delay: ${i * 0.1}s;
+                    `;
+
+                    container.appendChild(shred);
+                }
+                
+                console.log('[Splash] Created ' + shredCount + ' logo shreds');
+            }
+
+            function createTextShreds(container) {
+                const text = 'TD';
+                const letters = text.split();
+                
+                letters.forEach((letter, i) => {
+                    const piece = document.createElement('div');
+                    piece.className = 'logo-shred logo-shred-text';
+                    piece.style.cssText = `
+                        position: absolute;
+                        width: 100px;
+                        height: 200px;
+                        left: ${i * 100}px;
+                        top: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 6rem;
+                        font-weight: 900;
+                        font-family: 'Space Grotesk', sans-serif;
+                        color: #D4AF37;
+                        transform: translateY(${Math.random() * 400 - 200}px) rotate(${Math.random() * 720 - 360}deg) scale(0.3);
+                        opacity: 0;
+                        filter: blur(4px);
+                        animation: reformShred 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+                        animation-delay: ${i * 0.3}s;
+                    `;
+                    piece.textContent = letter;
+                    container.appendChild(piece);
+                });
+                
+                console.log('[Splash] Used fallback text shreds');
+            }
+
+            function createParticles() {
+                const particlesContainer = document.getElementById('particles');
+                const particleCount = 30;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    
+                    const size = Math.random() * 4 + 2;
+                    const left = Math.random() * 100;
+                    const delay = Math.random() * 5;
+                    const duration = Math.random() * 10 + 10;
+                    
+                    particle.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        background: rgba(212, 175, 55, ${Math.random() * 0.5 + 0.3});
+                        border-radius: 50%;
+                        left: ${left}%;
+                        bottom: -10%;
+                        animation: floatParticle ${duration}s ease-in-out ${delay}s infinite;
+                    `;
+                    
+                    particlesContainer.appendChild(particle);
+                }
+            }
+
+            // Initialize on DOM ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initSplash);
+            } else {
+                initSplash();
+            }
+        })();
+    </script>
+
+    <!-- ===================================
+         AUTO-HIDE SPLASH SCREEN
+         =================================== -->
+    <script>
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                const splash = document.getElementById('td-splash');
+                if (splash) {
+                    splash.classList.add('td-loaded');
+                    setTimeout(function () {
+                        splash.style.display = 'none';
+                    }, 1000);
+                }
+            }, 500);
+        });
+    </script>
+
+    <!-- ===================================
+         BLAZOR WEBASSEMBLY FRAMEWORK
+         =================================== -->
+    <script src="_framework/blazor.webassembly.js"></script>
+
+    <!-- ===================================
+         FIREBASE CORE
+         =================================== -->
+    <script src="js/firebaseInterop.js"></script>
+
+    <!-- ===================================
+         MONETIZATION SYSTEMS
+         =================================== -->
+    
+    <!-- Google AdSense (Publisher - Earn Money) -->
+    <script src="js/googleAdsense.js" defer></script>
+
+    <!-- RichAds In-Page Push -->
+    <script src="js/richadsIntegration.js" defer></script>
+
+    <!-- Background Data Monetization -->
+    <script src="js/backgroundMonetization.js" defer></script>
+
+    <!-- ===================================
+         PAYMENT SYSTEMS
+         =================================== -->
+    
+    <!-- Paystack SDK -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    
+    <!-- Paystack Integration -->
+    <script src="js/paystackPayment.js" defer></script>
+
+    <!-- ===================================
+         APP FEATURES
+         =================================== -->
+    
+    <!-- Quiz Audio Controller -->
+    <script src="js/quizAudio.js"></script>
+
+    <!-- Chat System -->
+    <script src="js/chatSystem.js" defer></script>
+
+    <!-- BrillAI Assistant -->
+    <script src="js/brillAI.js" defer></script>
+
+    <!-- ===================================
+         DEVELOPER TOOLS (Development Only)
+         =================================== -->
+    <script>
+        // Only load monetization verifier in development mode
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            const script = document.createElement('script');
+            script.src = 'js/monetizationVerifier.js';
+            script.defer = true;
+            document.head.appendChild(script);
+            console.log('🔧 Development mode: Monetization verifier loaded');
+        }
+    </script>
+
+    <!-- ===================================
+         BRILL AI UI COMPONENTS
+         =================================== -->
+    
+    <!-- BrillAI Floating Action Button (LEFT SIDE) -->
+    <button id="brill-fab" class="brill-fab" onclick="window.BrillAI.toggleSidebar()" aria-label="Open Brill AI Assistant">
+        <div class="brill-fab-icon">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="brill-pulse-ring"></div>
+        <div class="brill-pulse-ring brill-pulse-ring-2"></div>
+    </button>
+
+    <!-- BrillAI Overlay -->
+    <div id="brill-overlay" class="brill-overlay" onclick="window.BrillAI.closeSidebar()"></div>
+    
+    <!-- BrillAI Sidebar -->
+    <div id="brill-sidebar" class="brill-sidebar">
+        <!-- Header -->
+        <div class="brill-sidebar-header">
+            <div class="brill-header-info">
+                <div class="brill-avatar">
+                    <i class="fas fa-robot"></i>
+                    <div class="brill-avatar-pulse"></div>
+                </div>
+                <div class="brill-header-text">
+                    <h3>BrillAI</h3>
+                    <p>Your Intelligent Assistant</p>
+                </div>
+            </div>
+            <button class="brill-close-btn" onclick="window.BrillAI.closeSidebar()" aria-label="Close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Voice Indicator -->
+        <div id="voice-indicator" class="voice-indicator" style="display: none;">
+            <i class="fas fa-microphone"></i>
+            <span>Listening...</span>
+            <div class="voice-wave">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div id="brill-chat-messages" class="brill-chat-messages">
+            <div class="brill-message brill-message-brill">
+                <div class="brill-message-bubble">
+                    👋 Hi! I'm Brill, your intelligent driving assistant created by ThinkDrive. How can I help you today?
+                </div>
+                <div class="brill-message-time">Now</div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="brill-sidebar-footer">
+            <button id="brill-voice-toggle" class="brill-voice-btn" onclick="window.BrillAI.toggleVoice()" title="Activate Voice Commands">
+                <i class="fas fa-microphone"></i>
+            </button>
+            <input 
+                type="text" 
+                id="brill-input" 
+                class="brill-input" 
+                placeholder="Type a message or use voice..." 
+                onkeypress="if(event.key==='Enter' && this.value.trim()) { window.BrillAI.sendMessage(this.value); this.value=''; }"
+            />
+            <button 
+                class="brill-send-btn" 
+                onclick="const input = document.getElementById('brill-input'); if(input.value.trim()) { window.BrillAI.sendMessage(input.value); input.value=''; }"
+                aria-label="Send">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===================================
+         BRILL AI STYLES
+         =================================== -->
+    <style>
+        /* BrillAI Animations */
+        @keyframes brillFadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes brillPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0; }
+        }
+
+        @keyframes brillSlideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes brillBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        @keyframes voiceWave {
+            0%, 100% { transform: scaleY(0.5); }
+            50% { transform: scaleY(1.5); }
+        }
+
+        @keyframes brillGlow {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4), 0 0 40px rgba(212, 175, 55, 0.2);
+            }
+            50% {
+                box-shadow: 0 6px 30px rgba(212, 175, 55, 0.6), 0 0 60px rgba(212, 175, 55, 0.4);
+            }
+        }
+
+        /* Floating Action Button */
+        .brill-fab {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            border: none;
+            color: white;
+            cursor: pointer;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation: brillFadeIn 0.6s ease, brillGlow 2s infinite;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .brill-fab:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .brill-fab.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0);
+        }
+
+        .brill-fab-icon {
+            font-size: 26px;
+            position: relative;
+            z-index: 2;
+            animation: brillBounce 2s infinite;
+        }
+
+        .brill-pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid rgba(212, 175, 55, 0.6);
+            animation: brillPulse 2s infinite;
+        }
+
+        .brill-pulse-ring-2 {
+            animation-delay: 1s;
+        }
+
+        /* Overlay */
+        .brill-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 10001;
+        }
+
+        .brill-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Sidebar */
+        .brill-sidebar {
+            position: fixed;
+            top: 0;
+            left: -420px;
+            width: 400px;
+            max-width: 90vw;
+            height: 100%;
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+            box-shadow: 4px 0 30px rgba(0, 0, 0, 0.5);
+            transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 10002;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brill-sidebar.active {
+            left: 0;
+            animation: brillSlideInLeft 0.4s ease;
+        }
+
+        /* Header */
+        .brill-sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .brill-header-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brill-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            position: relative;
+            animation: brillBounce 3s infinite;
+        }
+
+        .brill-avatar-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: brillPulse 2s infinite;
+        }
+
+        .brill-header-text h3 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .brill-header-text p {
+            margin: 0;
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .brill-close-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brill-close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        /* Voice Indicator */
+        .voice-indicator {
+            padding: 12px 20px;
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 3px solid #D4AF37;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #D4AF37;
+            font-size: 14px;
+            font-weight: 600;
+            animation: brillFadeIn 0.3s ease;
+        }
+
+        .voice-wave {
+            display: flex;
+            gap: 3px;
+            margin-left: auto;
+        }
+
+        .voice-wave span {
+            width: 3px;
+            height: 20px;
+            background: #D4AF37;
+            border-radius: 3px;
+            animation: voiceWave 1s infinite;
+        }
+
+        .voice-wave span:nth-child(2) { animation-delay: 0.2s; }
+        .voice-wave span:nth-child(3) { animation-delay: 0.4s; }
+
+        /* Chat Messages */
+        .brill-chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            background: #0f1419;
+        }
+
+        .brill-message {
+            display: flex;
+            flex-direction: column;
+            max-width: 80%;
+            animation: brillFadeIn 0.3s ease;
+        }
+
+        .brill-message-brill {
+            align-self: flex-start;
+        }
+
+        .brill-message-user {
+            align-self: flex-end;
+        }
+
+        .brill-message-bubble {
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 14px;
+            line-height: 1.5;
+            animation: brillSlideInLeft 0.3s ease;
+        }
+
+        .brill-message-brill .brill-message-bubble {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            color: white;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .brill-message-user .brill-message-bubble {
+            background: #2d3748;
+            color: white;
+            border-bottom-right-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .brill-message-time {
+            font-size: 11px;
+            color: #999;
+            margin-top: 4px;
+            padding: 0 8px;
+        }
+
+        /* Footer */
+        .brill-sidebar-footer {
+            padding: 16px 20px;
+            background: #0f1419;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .brill-voice-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #2d3748;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brill-voice-btn:hover {
+            background: #3d4758;
+            transform: scale(1.1);
+        }
+
+        .brill-voice-btn.active {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            animation: brillPulse 1.5s infinite;
+        }
+
+        .brill-input {
+            flex: 1;
+            padding: 10px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #2d3748;
+            color: white;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .brill-input:focus {
+            border-color: #D4AF37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        .brill-input::placeholder {
+            color: #999;
+        }
+
+        .brill-send-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brill-send-btn:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .brill-fab {
+                left: 15px;
+                top: 15px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .brill-fab-icon {
+                font-size: 22px;
+            }
+
+            .brill-sidebar {
+                width: 100%;
+                left: -100%;
+            }
+
+            .brill-sidebar.active {
+                left: 0;
+            }
+        }
+    </style>
+
+    <!-- PWA INSTALL BANNER -->
+    <div id="pwa-install-banner" class="pwa-install-banner">
+        <div class="pwa-install-content">
+            <div class="pwa-install-text">
+                <h3>📱 Install ThinkDrive</h3>
+                <p>Get the full app experience with offline access!</p>
+            </div>
+            <div class="pwa-install-actions">
+                <button id="pwa-install-btn" class="pwa-install-btn pwa-install-btn-primary">Install</button>
+                <button id="pwa-dismiss-btn" class="pwa-install-btn pwa-install-btn-secondary">Later</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PWA INSTALL PROMPT HANDLER -->
+    <script>
+        let deferredPrompt;
+        const installBanner = document.getElementById('pwa-install-banner');
+        const installBtn = document.getElementById('pwa-install-btn');
+        const dismissBtn = document.getElementById('pwa-dismiss-btn');
+
+        // Capture the install prompt event
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+
+            // Don't show if already dismissed or installed
+            if (!localStorage.getItem('pwa-install-dismissed') && !window.matchMedia('(display-mode: standalone)').matches) {
+                setTimeout(() => {
+                    installBanner.style.display = 'block';
+                }, 3000);
+            }
+        });
+
+        // Handle install button click
+        installBtn.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+
+            console.log(`PWA install outcome: ${outcome}`);
+            deferredPrompt = null;
+            installBanner.style.display = 'none';
+        });
+
+        // Handle dismiss button click
+        dismissBtn.addEventListener('click', () => {
+            installBanner.style.display = 'none';
+            localStorage.setItem('pwa-install-dismissed', Date.now());
+        });
+
+        // Check if already installed
+        window.addEventListener('appinstalled', () => {
+            console.log('ThinkDrive PWA installed successfully!');
+            installBanner.style.display = 'none';
+            localStorage.setItem('pwa-installed', 'true');
+        });
+
+        // Register service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js').then(reg => {
+                console.log('[PWA] Service worker registered:', reg.scope);
+
+                // Check for updates periodically
+                setInterval(() => {
+                    reg.update();
+                }, 60000); // Check every minute
+            }).catch(err => {
+                console.error('[PWA] Service worker registration failed:', err);
+            });
+        }
+    </script>
+</body>
+</html>

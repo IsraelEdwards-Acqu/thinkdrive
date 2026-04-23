@@ -1,0 +1,137 @@
+﻿.profile-container {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(11,27,51,0.08);
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.profile-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-upload {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+}
+
+    .avatar-upload img,
+    .avatar-upload i {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #ddd;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: box-shadow 0.2s ease;
+    }
+
+    .avatar-upload:hover img,
+    .avatar-upload:hover i {
+        box-shadow: 0 0 0 3px #2b56ff;
+    }
+
+.icon-xl {
+    font-size: 4rem;
+}
+
+.profile-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label-sm {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.button-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.full-width {
+    flex: 1 1 45%;
+    text-align: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-primary {
+    background: #2b56ff;
+    color: #fff;
+    border: none;
+}
+
+    .btn-primary:hover {
+        background: #1f3fcc;
+    }
+
+.btn-outline {
+    background: transparent;
+    color: #2b56ff;
+    border: 1px solid #2b56ff;
+}
+
+    .btn-outline:hover {
+        background: #f0f4ff;
+    }
+
+.back-btn {
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .profile-form {
+        margin-top: 1rem;
+    }
+
+    .button-row {
+        flex-direction: column;
+    }
+
+    .full-width {
+        width: 100%;
+    }
+}
