@@ -1,5 +1,6 @@
 {
-  "outputDirectory": "ThinkDrive/bin/Release/net9.0/publish/wwwroot",
+  "buildCommand": "",
+  "outputDirectory": ".",
   "headers": [
     {
       "source": "/service-worker.js",
